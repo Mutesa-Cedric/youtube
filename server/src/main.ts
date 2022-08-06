@@ -1,5 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser"
 import cors from "cors"
 import { connectToDatabase, disconnectFromDatabase } from "./utils/database";
 import logger from "./utils/logger";
@@ -11,6 +12,7 @@ const app = express();
 // middlewares
 app.use(cookieParser());
 app.use(express.json());
+app.use(bodyParser.json())
 app.use(cors({
     origin: CORS_ORIGIN,
     credentials: true

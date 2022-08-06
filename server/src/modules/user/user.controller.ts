@@ -9,7 +9,7 @@ export async function registerUserHandler(req: Request, res: Response) {
     try {
         await createUser({ username, email, password })
         return res.status(StatusCodes.CREATED).send("user created successfully!")
-    } catch (error) {
+    } catch (error:any) {
         if (error.code === 11000) {
             return res.status(StatusCodes.CONFLICT).send("User already exists")
         }
